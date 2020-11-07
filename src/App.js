@@ -11,11 +11,15 @@ import SignUp from "./pages/SignUp";
 import Marketing from "./pages/Marketing";
 import Consulting from "./pages/Consulting";
 
-function App() {
+
+const App=() => {
+  
+
   return (
     <Router>
       <div className="App">
       <Navbar />
+     
 
       <Navbartwo />
 
@@ -32,5 +36,7 @@ function App() {
     </Router>
   );
 }
+
+
 
 export default App;
