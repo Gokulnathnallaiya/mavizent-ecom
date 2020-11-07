@@ -1,9 +1,9 @@
 import React from "react";
 import "./sort.styles.css";
-import { selectHomepageProducts} from "../../redux/products/product.selector";
+import { selectHomepageProducts} from "../../reduxx/products/product.selector";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import {setHomePageProducts} from "../../redux/products/product.actions";
+import {setHomePageProducts} from "../../reduxx/products/product.actions";
 
 
 const SortComponent = ({products,setProducts}) => {
