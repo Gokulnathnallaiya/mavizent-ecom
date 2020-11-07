@@ -5,9 +5,9 @@ const SortComponent = () => {
     <div>
       <select className="sort-container" name="cars" id="cars">
         <option value="volvo">SORT BY PRICE</option>
-        <option value="saab">Saabssdfgsdfds</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
+        <option value="saab">POPULAR</option>
+        <option value="opel">NEW</option>
+        <option value="audi">HIGHEST RATED</option>
       </select>
     </div>
   );
