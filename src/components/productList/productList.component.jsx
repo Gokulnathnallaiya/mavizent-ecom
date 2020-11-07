@@ -2,10 +2,10 @@ import React from "react";
 import "./productList.styles.css" ;
 import ProductCard from "../productCard/card";
 import axios from "axios";
-import { selectHomepageProducts} from "../../redux/products/product.selector";
+import { selectHomepageProducts} from "../../reduxx/products/product.selector";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import {setHomePageProducts} from "../../redux/products/product.actions";
+import {setHomePageProducts} from "../../reduxx/products/product.actions";
 
 
 class ProductList extends React.Component{
