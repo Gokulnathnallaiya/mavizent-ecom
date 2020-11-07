@@ -8,6 +8,7 @@ import {setHomePageProducts} from "../../redux/products/product.actions";
 
 const SortComponent = ({products,setProducts}) => {
 
+  
   const handleProductsFilter = e => {
     let value = e.target.value;
     
@@ -21,6 +22,14 @@ const SortComponent = ({products,setProducts}) => {
     else if (value==="hightolow"){
       const sortedArray = products.slice().sort((a,b)=>{
         return b.disPrice-a.disPrice
+      })
+      setProducts(sortedArray)
+
+    }
+    else if (value==="popular"){
+      
+      const sortedArray = products.slice().sort((a,b)=>{
+        return b.stock-a.stock
       })
       setProducts(sortedArray)
 
