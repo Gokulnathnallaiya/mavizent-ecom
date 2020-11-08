@@ -4,6 +4,8 @@ import Navbartwo from "./components/navbartwo/navbartwo";
 import "./App.css";
 import Home from "./pages/homePage/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LoginPage from "./pages/loginPage/loginPage.component";
+
 import Services from "./pages/Services";
 import Products from "./pages/Products";
 import ContactUs from "./pages/ContactUs";
@@ -29,7 +31,7 @@ const App=() => {
         <Route path="/products" component={Products} />
         <Route path="/contact-us" component={ContactUs} />
         <Route path="/sign-up" component={SignUp} />
-        <Route path="/marketing" component={Marketing} />
+        <Route path="/marketing" component={LoginPage} />
         <Route path="/consulting" component={Consulting} />
       </Switch>
       </div>

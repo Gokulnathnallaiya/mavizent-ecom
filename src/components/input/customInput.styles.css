@@ -1,0 +1,23 @@
+input{
+    word-spacing: normal;
+    cursor: text;
+}
+
+.custom-input{
+    display: block;
+    width:100%;
+    height:35px;
+    min-height:35px;
+    padding:10px;
+    border:1px solid #b5b8bd;
+    outline:none;
+    background: #fff;
+    color:#5f6a7d;
+}
+
+@media screen and (max-width: 960px){
+
+    .custom-input{
+        width:100%;
+    }
+}
