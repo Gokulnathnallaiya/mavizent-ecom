@@ -1,7 +1,7 @@
 import React from "react";
 import FormInput from "../input/customInput.component";
-import "./loginform.styles.css";
 import Button from "../button/Button";
+import "./loginform.styles.css";
 const LoginForm = () => {
   return (
     <div className="login-form">

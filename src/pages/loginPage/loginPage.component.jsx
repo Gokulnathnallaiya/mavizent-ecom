@@ -1,7 +1,7 @@
 import React from "react";
 
 import LoginForm from "../../components/loginform/loginform.component";
-import SignupForm from "../../components/signupform/signupform.component";
+import SubscribeForm from "../../components/subscribeform/subcribeform.component";
 import "./loginPage.styles.css";
 
 
@@ -13,8 +13,8 @@ class LoginPage extends React.Component {
         <div className="loginform">
           <LoginForm />
         </div>
-        <div className="signup-form">
-          <SignupForm/>
+        <div className="signupform">
+          <SubscribeForm/>
         </div>
     
       </div>

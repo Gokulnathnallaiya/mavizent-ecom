@@ -2,11 +2,11 @@ import React from "react";
 import './customInput.styles.css';
 
 
-const FormInput = ()=>{
+const FormInput = ({placeholder, signup})=>{
 
 
     return (
-        <input className="custom-input">
+        <input className={signup?"custom-input-signup":"custom-input"} placeholder={placeholder}>
         </input>
     )
 

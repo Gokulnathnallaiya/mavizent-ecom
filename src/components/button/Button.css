@@ -6,6 +6,19 @@
 .btn {
   padding: 12px 25px;
   border-radius: 2px;
+
+  outline: none;
+  border: none;
+  font-size: 13px;
+  font-weight:600;
+  color: #fff;
+  cursor: pointer;
+  background-color: var(--button);
+}
+.signup-btn {
+  padding: 12px 25px;
+  border-radius: 2px;
+  width: 100%;
   outline: none;
   border: none;
   font-size: 13px;
