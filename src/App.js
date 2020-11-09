@@ -10,7 +10,6 @@ import Services from "./pages/Services";
 import Products from "./pages/Products";
 import ContactUs from "./pages/ContactUs";
 import SignUp from "./pages/SignUp";
-import Marketing from "./pages/Marketing";
 import Consulting from "./pages/Consulting";
 
 
