@@ -33,9 +33,13 @@
     font-size:13px;
 
 }
+.link{
+    text-decoration: none;
+}
 .signup-link{
     color:rgb(255, 123, 0);
     cursor: pointer;
+    
 }
 .fa-arrow-right{
     color:rgb(255, 123, 0);

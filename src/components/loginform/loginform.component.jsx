@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
           <Button onClick={this.handleSubmit}>LOGIN</Button>
           <p>
             New Customer?{" "}
-            <Link to="/signup">
+            <Link className="link"to="/signup">
             <span className="signup-link">
               Sign up <i class="fa fa-arrow-right" aria-hidden="true"></i>
             </span>
