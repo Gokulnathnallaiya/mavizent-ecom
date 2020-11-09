@@ -1,11 +1,18 @@
 import React from "react";
 import "./card.styles.css";
 
-const ProductCard = ({ item }) => {
+import { withRouter } from "react-router-dom"
+
+const ProductCard = ({ item, history }) => {
   const { title, disPrice, oriPrice, _id } = item;
+ 
+
+  const handleClick =()=> {
+    history.push({pathname:`/product/${_id}`})
+  }
 
   return (
-    <div className="card-container">
+    <div className="card-container" onClick={handleClick}>
       <div className="image-container">
         <img
           className="image"
@@ -24,4 +31,4 @@ const ProductCard = ({ item }) => {
     </div>
   );
 };
-export default ProductCard;
+export default  withRouter(ProductCard);

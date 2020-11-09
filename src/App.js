@@ -6,11 +6,13 @@ import Home from "./pages/homePage/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./pages/loginPage/loginPage.component";
 import SignupPage from "./pages/signupPage/signupPage.component";
+import ProductDetailPage from "./pages/productDetailPage/productDetailPage.component";
 
 import Services from "./pages/Services";
 import Products from "./pages/Products";
 import ContactUs from "./pages/ContactUs";
 import Consulting from "./pages/Consulting";
+
 import Loader from "./components/loader/loader.component";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -31,6 +33,7 @@ const App = ({Loading}) => {
           <Route path="/" exact component={Home} />
           <Route path="/signup" component={SignupPage} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/product/:id" component={ProductDetailPage}/>
 
           <Route path="/services" component={Services} />
           <Route path="/products" component={Products} />
