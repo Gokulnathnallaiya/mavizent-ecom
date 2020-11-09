@@ -54,13 +54,13 @@ function Navbar({ currentUser }) {
                 to="/login"
                 className="nav-links"
                 onClick={closeMobileMenu}
-              >Login</Link>
+              >LOGIN</Link>
             ) : (
               <Link
                 to="/loginn"//to be ediited
                 className="nav-links"
                 onClick={closeMobileMenu}
-              >My Account</Link>
+              >MY ACCOUNT</Link>
             )}
           </li>
         </ul>
