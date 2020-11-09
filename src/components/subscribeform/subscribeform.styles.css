@@ -1,4 +1,4 @@
-.signup-form {
+.subscribe-form {
     width: 27%;
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
     margin:2px  auto;
     align-items: center;
   }
-.signup-form>h4{
+.subscribe-form>h4{
 
     color:rgb(102, 101, 101);
     font-size: 18px;
@@ -16,18 +16,18 @@
     font-family: cursive;
 
 }
-.signup-form>h5{
+.subscribe-form>h5{
     font-size: 12px;
     margin: 10px 0px;
     color:rgb(71, 70, 70);
 }
-.loginbutton{
+.subscribebutton{
     width:100%;
     margin:20px;
 }
   @media screen and (max-width: 960px){
   
-      .signup-form{
+      .subscribe-form{
           width:85%;
           margin:2px auto;
       }

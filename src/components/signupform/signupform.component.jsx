@@ -1,59 +1,71 @@
 import React from "react";
 import FormInput from "../input/customInput.component";
 import Button from "../button/Button";
-import "./loginform.styles.css";
+import "./signupform.styles.css";
 import axios from "axios";
-import { withRouter,Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../../reduxx/user/user.actions";
 import { setLoading } from "../../reduxx/appUtils/app.actions";
-
 toast.configure();
 
-class LoginForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       email: "",
       password: "",
     };
   }
 
   handleSubmit = (e) => {
-    const { Loading } = this.props;
+    const {Loading}=this.props
     Loading(true);
     axios
-      .post(`https://b2b-backendd.herokuapp.com/login`, this.state)
+      .post(`https://b2b-backendd.herokuapp.com/signup`, this.state)
       .then((res) => {
         const { history, setCurrentUser } = this.props;
 
         if (res.data.success === 1) {
           Loading(false);
           setCurrentUser(this.state.email);
-          this.setState({ email: "", password: "" });
+          this.setState({ name:"",email: "", password: "" });
+
           history.push({ pathname: "/" });
-          toast("LOGIN SUCCESFUL", { type: "success" });
+          toast("SIGNUP SUCCESSFUL", { type: "success" });
         } else {
           Loading(false);
-          toast("LOGIN FAILED", { type: "error" });
+          toast("SIGNUP FAILED", { type: "error" });
         }
       })
       .catch((err) => {
+        Loading(false);
         console.log(err);
-        toast("LOGIN FAILED", { type: "error" });
+        toast("SIGNUP FAILED", { type: "error" });
       });
   };
 
   handleChange = (event) => {
     const { value, name } = event.target;
+
     this.setState({ [name]: value });
     console.log(this.state);
   };
   render() {
     return (
-      <div className="login-form">
+      <div className="signup-form">
+        <p>Name</p>
+        <FormInput
+          name="name"
+          type="name"
+          onChange={this.handleChange}
+          value={this.state.name}
+          label="name"
+          required
+        ></FormInput>
         <p>EMAIL</p>
         <FormInput
           name="email"
@@ -72,16 +84,8 @@ class LoginForm extends React.Component {
           label="password"
           required
         ></FormInput>
-        <div className="login-button">
-          <Button onClick={this.handleSubmit}>LOGIN</Button>
-          <p>
-            New Customer?{" "}
-            <Link to="/signup">
-            <span className="signup-link">
-              Sign up <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </span>
-            </Link>
-          </p>
+        <div className="signup-button">
+          <Button onClick={this.handleSubmit}>SIGN UP</Button>
         </div>
       </div>
     );
@@ -89,7 +93,7 @@ class LoginForm extends React.Component {
 }
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-  Loading: (value) => dispatch(setLoading(value)),
+  Loading: (value) => dispatch(setLoading(value))
 });
 
-export default connect(null, mapDispatchToProps)(withRouter(LoginForm));
+export default connect(null, mapDispatchToProps)(withRouter(SignupForm));

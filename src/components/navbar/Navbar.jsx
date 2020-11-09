@@ -2,30 +2,16 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import Dropdown from "../dropdown/Dropdown";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../reduxx/user/user.selectors";
 
-function Navbar() {
+function Navbar({ currentUser }) {
   const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
-
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
+  console.log(currentUser);
 
   return (
     <>
@@ -61,33 +47,28 @@ function Navbar() {
               CONTACT US
             </Link>
           </li>
-          <li
-            className="nav-item"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
-            <Link
-              to="/services"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
-              ACCOUNT{" "}
-              <span className="arrow">
-                {window.innerWidth > 960 ? (
-                  dropdown ? (
-                    <i className="fas  fa-angle-up" />
-                  ) : (
-                    <i className="fas arrow fa-angle-down" />
-                  )
-                ) : null}
-              </span>
-            </Link>
-            {dropdown && <Dropdown />}
+          <li className="nav-item">
+            {window.innerWidth>960?<i className="fas  fa-user-alt" />:null}
+            {currentUser === "" ? (
+              <Link
+                to="/login"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >Login</Link>
+            ) : (
+              <Link
+                to="/loginn"//to be ediited
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >My Account</Link>
+            )}
           </li>
         </ul>
       </nav>
     </>
   );
 }
-
-export default Navbar;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
+export default connect(mapStateToProps, null)(Navbar);

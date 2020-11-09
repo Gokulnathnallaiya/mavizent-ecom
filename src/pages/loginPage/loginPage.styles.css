@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
 }
-.signupform{
+.subscribeform{
 
   display: flex;
   flex-direction: column;
@@ -35,6 +35,6 @@
   .login-page > h1 {
     font-size: 20px;
     height: 35px;
-    margin:1rem 2rem;
+    margin:2rem;
   }
 }

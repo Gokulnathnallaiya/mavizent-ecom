@@ -1,14 +1,9 @@
-import React from 'react';
-import './Button.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./Button.css";
 
-const  Button = ({children,signup}) =>{
-  return (
-    <Link to='sign-up'>
-      <button className={signup?'signup-btn':'btn'}>{children
-      }</button>
-    </Link>
-  );
-}
 
-export default Button
+const Button = ({ children, signup, onClick }) => {
+  return <button onClick={onClick}className={signup ? "signup-btn" : "btn"}>{children}</button>;
+};
+
+export default Button;

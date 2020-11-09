@@ -20,8 +20,26 @@
     text-align: left;
 }
 .login-button{
-    
+    display: flex;
     margin-top:15px;
+    justify-content: space-between;
+    
+    align-items: center;
+   
+    
+}
+.login-button>p{
+    color:rgb(117, 112, 112);
+    font-size:13px;
+
+}
+.signup-link{
+    color:rgb(255, 123, 0);
+    cursor: pointer;
+}
+.fa-arrow-right{
+    color:rgb(255, 123, 0);
+    cursor: pointer;
 }
 
 

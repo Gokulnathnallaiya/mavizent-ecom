@@ -5,39 +5,45 @@ import "./App.css";
 import Home from "./pages/homePage/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./pages/loginPage/loginPage.component";
+import SignupPage from "./pages/signupPage/signupPage.component";
 
 import Services from "./pages/Services";
 import Products from "./pages/Products";
 import ContactUs from "./pages/ContactUs";
-import SignUp from "./pages/SignUp";
 import Consulting from "./pages/Consulting";
+import Loader from "./components/loader/loader.component";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { isLoading } from "./reduxx/appUtils/app.selectors";
 
-
-const App=() => {
-  
-
+const App = ({Loading}) => {
   return (
     <Router>
       <div className="App">
-      <Navbar />
-     
+        <Navbar />
+        <Navbartwo />
+        <h1>{Loading}</h1>
+  
+  
+        {Loading?<Loader/>:null}
 
-      <Navbartwo />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/signup" component={SignupPage} />
+          <Route path="/login" component={LoginPage} />
 
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/services" component={Services} />
-        <Route path="/products" component={Products} />
-        <Route path="/contact-us" component={ContactUs} />
-        <Route path="/sign-up" component={SignUp} />
-        <Route path="/marketing" component={LoginPage} />
-        <Route path="/consulting" component={Consulting} />
-      </Switch>
+          <Route path="/services" component={Services} />
+          <Route path="/products" component={Products} />
+          <Route path="/contact-us" component={ContactUs} />
+          <Route path="/consulting" component={Consulting} />
+        </Switch>
       </div>
     </Router>
   );
-}
+};
 
+const mapStateToProps = createStructuredSelector({
+  Loading: isLoading,
+});
 
-
-export default App;
+export default connect(mapStateToProps, null)(App);
