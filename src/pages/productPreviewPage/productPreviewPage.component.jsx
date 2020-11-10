@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProductDetail from "../../components/productDetail/productDetail.component";
+import ProductPreview from "../../components/productPreview/productPreview.component";
 import axios from "axios";
 class ProductDetailPage extends React.Component {
   constructor(props) {
@@ -15,9 +15,9 @@ class ProductDetailPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
         
-        <ProductDetail id={this.state.id}/>
+        <ProductPreview id={this.state.id}/>
       </div>
     );
   }

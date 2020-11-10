@@ -1,0 +1,139 @@
+.imagecontainer {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  backface-visibility: visible;
+  transform: translateZ(0);
+  margin: 30px;
+  width: 35%;
+}
+.product-image {
+  width: 80%;
+  height: auto;
+}
+
+.productdetail-container {
+  display: flex;
+}
+.description-container{
+  width:60%;
+}
+.description1 {
+  margin: 2rem;
+  
+
+  width: 85%;
+  text-align: inherit;
+}
+.description2 {
+  margin: 2rem;
+  width: 85%;
+  text-align: justify;
+}
+.description2 > p {
+ 
+  font-size: 15px;
+  color: rgb(71, 70, 70);
+  font-weight: lighter;
+  width:95%;
+ 
+}
+.description2>h3{
+  margin-bottom: 1rem;
+}
+.description1 > .preview-title {
+  font-size: 22px;
+  font-weight: lighter;
+  margin-bottom: 1rem;
+}
+.prices {
+  display: flex;
+}
+.description1 > .prices > .preview-disPrice {
+  font-weight: bolder;
+  font-size: 25px;
+}
+.description1 > .prices > .preview-oriPrice {
+  font-weight: bolder;
+  font-size: 25px;
+  color: rgb(255, 123, 0);
+  margin-left: 1rem;
+  text-decoration: line-through;
+}
+.buynow {
+  margin-left: 2rem;
+  background-color: red;
+}
+
+
+@media screen and (max-width: 960px) {
+  .product-image {
+    width: 80%;
+  }
+  .imagecontainer {
+    display: flex;
+    flex-direction: column;
+    width:80%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+
+    margin: 1.5rem;
+    overflow: clip;
+  }
+  .productdetail-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .description-container{
+    width:100%;
+  }
+  .description1 {
+    margin: 2rem;
+    
+
+    width: 85%;
+    text-align: inherit;
+  }
+  .description2 {
+    margin: 2rem;
+    width: 85%;
+    text-align: justify;
+  }
+  .description2 > p {
+   
+    font-size: 15px;
+    color: rgb(71, 70, 70);
+    font-weight: lighter;
+    
+   
+  }
+  .description2>h3{
+    margin-bottom: 1rem;
+  }
+  .description1 > .preview-title {
+    font-size: 22px;
+    font-weight: lighter;
+    margin-bottom: 1rem;
+  }
+  .prices {
+    display: flex;
+  }
+  .description1 > .prices > .preview-disPrice {
+    font-weight: bolder;
+    font-size: 25px;
+  }
+  .description1 > .prices > .preview-oriPrice {
+    font-weight: bolder;
+    font-size: 25px;
+    color: rgb(255, 123, 0);
+    margin-left: 1rem;
+    text-decoration: line-through;
+  }
+  .buynow {
+    margin-left: 2rem;
+    background-color: red;
+  }
+}

@@ -14,7 +14,7 @@ const SignUpForm = () => {
       <FormInput signup placeholder="Email"></FormInput>
       
       <div className="subscribebutton">
-        <Button signup> SUBSCRIBE</Button>
+        <Button fullwidth> SUBSCRIBE</Button>
       </div>
     </div>
   );

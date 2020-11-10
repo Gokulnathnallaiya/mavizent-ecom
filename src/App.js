@@ -6,7 +6,7 @@ import Home from "./pages/homePage/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./pages/loginPage/loginPage.component";
 import SignupPage from "./pages/signupPage/signupPage.component";
-import ProductDetailPage from "./pages/productDetailPage/productDetailPage.component";
+import ProductDetailPage from "./pages/productPreviewPage/productPreviewPage.component";
 
 import Services from "./pages/Services";
 import Products from "./pages/Products";
@@ -34,7 +34,6 @@ const App = ({Loading}) => {
           <Route path="/signup" component={SignupPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/product/:id" component={ProductDetailPage}/>
-
           <Route path="/services" component={Services} />
           <Route path="/products" component={Products} />
           <Route path="/contact-us" component={ContactUs} />
