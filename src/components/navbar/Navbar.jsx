@@ -49,7 +49,7 @@ function Navbar({ currentUser }) {
           </li>
           <li className="nav-item">
             {window.innerWidth>960?<i className="fas  fa-user-alt" />:null}
-            {currentUser === "" ? (
+            {!currentUser ? (
               <Link
                 to="/login"
                 className="nav-links"
@@ -57,7 +57,7 @@ function Navbar({ currentUser }) {
               >LOGIN</Link>
             ) : (
               <Link
-                to="/loginn"//to be ediited
+                to="/myaccount"//to be ediited
                 className="nav-links"
                 onClick={closeMobileMenu}
               >MY ACCOUNT</Link>

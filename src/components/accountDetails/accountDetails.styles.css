@@ -1,0 +1,47 @@
+.user-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.user-details > .name {
+  color: rgb(211, 142, 14);
+  font-size: 15px;
+  font-weight: lighter;
+}
+.user-details > .email {
+  color: rgb(65, 63, 62);
+  font-size: 15px;
+  font-weight: lighter;
+  margin-top: 10px;
+}
+.address {
+  align-items: center;
+}
+.address > h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: lighter;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+.address > p {
+  margin-top: 1rem;
+  font-weight: lighter;
+  color: rgb(65, 63, 62);
+}
+
+.order-history {
+  align-items: center;
+}
+.order-history > h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: lighter;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+.order-history > p {
+  margin-top: 1rem;
+  font-weight: lighter;
+  color: rgb(65, 63, 62);
+}
