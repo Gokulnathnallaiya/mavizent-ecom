@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
 
         if (res.data.success === 1) {
           Loading(false);
-          setCurrentUser(this.state.email);
+          setCurrentUser(res.data.user);
           this.setState({ email: "", password: "" });
           history.push({ pathname: "/" });
           toast("LOGIN SUCCESFUL", { type: "success" });

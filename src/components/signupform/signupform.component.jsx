@@ -31,7 +31,7 @@ class SignupForm extends React.Component {
 
         if (res.data.success === 1) {
           Loading(false);
-          setCurrentUser(this.state.email);
+          setCurrentUser(res.data.user);
           this.setState({ name:"",email: "", password: "" });
 
           history.push({ pathname: "/" });

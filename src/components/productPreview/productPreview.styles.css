@@ -16,6 +16,8 @@
 
 .productdetail-container {
   display: flex;
+  
+  align-items:center;
 }
 .description-container{
   width:60%;
