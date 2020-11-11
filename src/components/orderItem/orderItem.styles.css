@@ -1,0 +1,56 @@
+
+.orderItem-container{
+    display: flex;
+    height:10%;
+    background-color: rgb(236, 228, 228);
+    margin:0.5rem;
+   
+}
+
+.orderItem-container>.image-container{
+    display: flex;
+    width:10%;
+    margin: 1rem;
+    
+}
+.order-details{
+    
+    margin-top:1rem;
+    margin-bottom: 1rem;
+   
+    
+}
+.prices{
+    
+    margin-top:1rem;
+    margin-left:0.5rem
+}
+.orderItem-image{
+
+    width:100%;
+    height:auto;
+    
+
+}
+
+@media screen and (max-width: 960px){
+
+
+    .orderItem-container{
+        display: flex;
+        height:15%;
+        background-color: rgb(236, 228, 228);
+        margin:0.5rem;
+      
+       
+    }
+    .order-details{
+        
+        margin-top:1rem;
+        margin-bottom: 1rem;
+        font-size: 13px;
+        
+    }
+
+
+}

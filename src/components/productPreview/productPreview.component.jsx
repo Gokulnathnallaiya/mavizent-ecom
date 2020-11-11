@@ -2,6 +2,15 @@ import React from "react";
 import "./productPreview.styles.css";
 import axios from "axios";
 import Button from "../../components/button/Button";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../reduxx/user/user.selectors";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { connect } from "react-redux";
+import { setLoading } from "../../reduxx/appUtils/app.actions";
+
+toast.configure();
 class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -20,10 +29,38 @@ class ProductDetail extends React.Component {
       });
   }
 
+  buyNow = () => {
+    const { Loading } = this.props;
+    const { title, disPrice, oriPrice, description } = this.state.product[0];
+
+    Loading(true);
+    axios
+      .post(
+        `https://b2b-backendd.herokuapp.com/user/${this.props.currentUser._id}/neworder`,
+        {
+          product: this.state.id,
+          title:title,
+          disPrice:disPrice,
+          oriPrice:oriPrice,
+          qty: 1,
+          Date: new Date(),
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        Loading(false);
+        toast(res.data.message, { type: "success" });
+      })
+      .catch((err) => {
+        toast("Error occured", { type: "error" });
+        Loading(false);
+        console.log(err);
+      });
+  };
+
   render() {
     const { title, disPrice, oriPrice, description } = this.state.product[0];
     console.log(title);
-
     return (
       <div className="productdetail-container">
         <div className="imagecontainer">
@@ -40,7 +77,7 @@ class ProductDetail extends React.Component {
               <h4 className="preview-disPrice">$ {disPrice}</h4>
               <h4 className="preview-oriPrice">$ {oriPrice}</h4>
               <div className="buynow">
-                <Button>BUY NOW</Button>
+                <Button onClick={this.buyNow}>BUY NOW</Button>
               </div>
             </div>
           </div>
@@ -54,4 +91,12 @@ class ProductDetail extends React.Component {
   }
 }
 
-export default ProductDetail;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  
+});
+const mapDispatchToProps = (dispatch) => ({
+  Loading: (value) => dispatch(setLoading(value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

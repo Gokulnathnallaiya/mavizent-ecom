@@ -21,7 +21,7 @@ class LoginForm extends React.Component {
     };
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = () => {
     const { Loading } = this.props;
     Loading(true);
     axios
