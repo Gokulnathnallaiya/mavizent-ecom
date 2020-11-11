@@ -38,13 +38,13 @@ class SignupForm extends React.Component {
           toast("SIGNUP SUCCESSFUL", { type: "success" });
         } else {
           Loading(false);
-          toast("SIGNUP FAILED", { type: "error" });
+          toast(res.data.message, { type: "error" });
         }
       })
       .catch((err) => {
         Loading(false);
         console.log(err);
-        toast("SIGNUP FAILED", { type: "error" });
+        toast("An Error occured", { type: "error" });
       });
   };
 

@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
           toast("LOGIN SUCCESFUL", { type: "success" });
         } else {
           Loading(false);
-          toast("LOGIN FAILED", { type: "error" });
+          toast(res.data.message, { type: "error" });
         }
       })
       .catch((err) => {
