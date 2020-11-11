@@ -43,7 +43,7 @@ class AccountDetailsPage extends Component {
         <h3 className="heading1">Account Details</h3>
         <h5 className="logout" onClick={this.logOut}>LOGOUT</h5>
         <div className="name-email">
-          <AccountDetails currentUser={this.props.currentUser} orders={this.state.orders} />;
+          <AccountDetails currentUser={this.props.currentUser} orders={this.state.orders} />
         </div>
       </div>
     );
