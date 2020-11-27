@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../../reduxx/user/user.actions";
-import { setLoading } from "../../reduxx/appUtils/app.actions";
 
 toast.configure();
 
@@ -22,21 +21,20 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit = () => {
-    const { Loading } = this.props;
-    Loading(true);
+   
     axios
       .post(`https://b2b-backendd.herokuapp.com/login`, this.state)
       .then((res) => {
         const { history, setCurrentUser } = this.props;
 
         if (res.data.success === 1) {
-          Loading(false);
+         
           setCurrentUser(res.data.user);
           this.setState({ email: "", password: "" });
           history.push({ pathname: "/" });
           toast("LOGIN SUCCESFUL", { type: "success" });
         } else {
-          Loading(false);
+          
           toast(res.data.message, { type: "error" });
         }
       })
@@ -89,7 +87,7 @@ class LoginForm extends React.Component {
 }
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-  Loading: (value) => dispatch(setLoading(value)),
+  
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(LoginForm));

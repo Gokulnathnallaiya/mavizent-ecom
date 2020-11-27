@@ -8,7 +8,6 @@ import { selectCurrentUser } from "../../reduxx/user/user.selectors";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { connect } from "react-redux";
-import { setLoading } from "../../reduxx/appUtils/app.actions";
 
 toast.configure();
 class ProductDetail extends React.Component {
@@ -30,10 +29,10 @@ class ProductDetail extends React.Component {
   }
 
   buyNow = () => {
-    const { Loading } = this.props;
+    
     const { title, disPrice, oriPrice, description } = this.state.product[0];
 
-    Loading(true);
+
     axios
       .post(
         `https://b2b-backendd.herokuapp.com/user/${this.props.currentUser._id}/neworder`,
@@ -48,12 +47,12 @@ class ProductDetail extends React.Component {
       )
       .then((res) => {
         console.log(res);
-        Loading(false);
+        
         toast(res.data.message, { type: "success" });
       })
       .catch((err) => {
         toast("Error occured", { type: "error" });
-        Loading(false);
+       
         console.log(err);
       });
   };
@@ -95,8 +94,6 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   
 });
-const mapDispatchToProps = (dispatch) => ({
-  Loading: (value) => dispatch(setLoading(value)),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
+
+export default connect(mapStateToProps, null)(ProductDetail);

@@ -14,7 +14,7 @@ class ProductList extends React.Component{
         super(props);
         this.state={
             
-            Loading:false,
+            
         };
     }
 
@@ -22,10 +22,10 @@ class ProductList extends React.Component{
 
     componentDidMount() {
         const {setProducts} = this.props;
-        this.setState({ Loading: true });
+       
         axios.get("https://b2b-backendd.herokuapp.com/products").then((res) => {
           setProducts(res.data)
-          this.setState({Loading:false});
+          
         });
       }
 
