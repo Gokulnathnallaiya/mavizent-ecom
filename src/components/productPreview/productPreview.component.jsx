@@ -30,7 +30,7 @@ class ProductDetail extends React.Component {
 
   buyNow = () => {
     
-    const { title, disPrice, oriPrice, description } = this.state.product[0];
+    const { title, disPrice, oriPrice } = this.state.product[0];
 
 
     axios

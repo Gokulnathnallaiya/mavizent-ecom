@@ -13,7 +13,7 @@ import LoginPage from "./pages/loginPage/loginPage.component";
 import SignupPage from "./pages/signupPage/signupPage.component";
 import ProductDetailPage from "./pages/productPreviewPage/productPreviewPage.component";
 import AccountDetailsPage from "./pages/accountDetailsPage/accountDetailsPage.component";
-
+import OtpVerification from "./pages/otpverification/otpVerification.component";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "./reduxx/user/user.selectors";
@@ -50,6 +50,7 @@ const App = ({ currentUser }) => {
               currentUser ? <AccountDetailsPage /> : <Redirect to="/login" />
             }
           />
+          <Route path="/verify" exact component={OtpVerification}/>
         </Switch>
       </div>
     </Router>

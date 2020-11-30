@@ -9,6 +9,7 @@ const AccountDetails = ({ currentUser, orders }) => {
       <div className="user-details">
         <h1 className="name">{currentUser.name}</h1>
         <h1 className="email">{currentUser.email}</h1>
+        <h1 className="email">{currentUser.mobile}</h1>
       </div>
       <div className="address">
         <h3>Primary Address</h3>
