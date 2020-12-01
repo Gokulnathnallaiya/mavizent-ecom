@@ -1,7 +1,12 @@
 import { toast } from "react-toastify";
 import axios from "axios";
 import React, { Component } from "react";
-
+// let user = {
+//   //   name: this.props.history.location.state.name,
+//   //   email: this.props.history.location.state.email,
+//   //   password: this.props.history.location.state.password,
+//   //   mobile: this.props.history.location.state.mobile,
+//   // };
 
 const handleSubmit = (e) => {
   axios

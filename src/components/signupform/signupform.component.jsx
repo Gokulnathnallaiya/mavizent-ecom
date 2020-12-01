@@ -35,7 +35,6 @@ class SignupForm extends React.Component {
 
     let mobileerror = "";
     let emailerror = "";
-    var invalidcharecters = /^[a-zA-Z]+$/;
     if (mobile.length < 10 || isNaN(mobile)) {
       mobileerror = "invalid Mobile number";
     }

@@ -20,7 +20,8 @@ class OtpVerification extends Component {
   }
 
   validateCode = async () => {
-    axios
+    let verified = null;
+    await axios
       .get(
         `https://b2b-backendd.herokuapp.com/verify?mobile=91${this.props.history.location.state.mobile}&code=${this.state.code}`
       )
@@ -29,38 +30,39 @@ class OtpVerification extends Component {
           console.log(res.data.status);
           if (res.data.status === "approved") {
             console.log("aproved");
-            return true;
+            verified = true;
           } else {
-            return false;
+            verified = false;
           }
         },
         (error) => {
           console.log(error);
         }
       );
+    if (verified) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const isvalid = this.validateCode();
-    console.log(this.props.location.state);
-    let user = {
-      name: this.props.history.location.state.name,
-      email: this.props.history.location.state.email,
-      password: this.props.history.location.state.password,
-      mobile: this.props.history.location.state.mobile,
-    };
-    console.log(user);
+    const isvalid = await this.validateCode();
+    let { name, email, mobile, password } = this.props.history.location.state;
+    let user = { name, email, mobile, password };
+
     if (isvalid) {
       axios
         .post(`https://b2b-backendd.herokuapp.com/signup`, user)
         .then((res) => {
-          const { history } = this.props;
+          const { history, setCurrentUser } = this.props;
           if (res.data.success === 1) {
             setCurrentUser(res.data.user);
+            console.log(res.data.user);
             this.setState({ name: "", email: "", password: "" });
-            history.push({ pathname: "/" });
             toast(res.data.message, { type: "success" });
+            history.push({ pathname: "/" });
           } else {
             toast(res.data.message, { type: "error" });
           }
@@ -69,8 +71,9 @@ class OtpVerification extends Component {
           console.log(err);
           toast("An Error occured", { type: "error" });
         });
+      console.log("signup success");
     } else {
-      console.log("invalid otp");
+      toast("Invalid OTP", { type: "error" });
     }
   };
   handleChange = (event) => {
@@ -88,11 +91,11 @@ class OtpVerification extends Component {
             <h1>Enter OTP</h1>
 
             <div className="otp-form">
-              {/* <h5>
+              <h5>
                 {" "}
                 <i className="fa fa-check" /> We've sent an OTP to your phone
                 number +91 {this.props.history.location.state.mobile}.
-              </h5> */}
+              </h5>
               <p>ENTER CODE</p>
               <FormInput
                 name="code"
